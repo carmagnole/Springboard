@@ -6,4 +6,4 @@ The U.S. government incarcerates over 1,500,000 inmates in the prison system, wh
 To provide clients of the private prison industry a status report of the current market, this project aims to survey the prisoner population dynamics of the U.S. justice and correction system, and summarize the longitudinal trends of incarceration. A forecast model is built by learning the pattern presented in past data and to predict change of the prisoner population in the future. This study can offer important information for business decision for clients and investors in the prison industry, such as regional expansion of revenue and contract for operation of custody facilities in the future.
 
 # Project II -- Theme Classification Based on Article Titles
-## Building a system that facilitates optimal manual multiple-choices among massive number of categories
+## Building a system that facilitates manual multiple-choices among massive number of categories
