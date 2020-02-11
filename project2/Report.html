@@ -13125,6 +13125,7 @@ div#notebook {
 <p>Keyword-based systems give authors the freedom to label their own work. By specifying keywords or #tags, the authors allow readers to search for information that aligns with their interest through author-generated labels. Albeit very flexible and dynamic, a keyword-based indexing system can be very costly to implement and maintain. Because keywords may be submitted by the author in a much more arbitrary way, it embeds uncertainty in the process of searching and retrieving information. For instance, a word may have various cases and derivations, and different words can also be semantically similar. In order for the readers’ search to hit the target accurately and comprehensively, the index system has to be able to understand different cases and variations of the same word, as well as establish semantic similarity.</p>
 <p>On the other hand, a theme-based system only allows articles to be labeled with predefined topics. Instead of dealing with a potentially infinite number of keywords, a theme-based indexing system can be more organized, and help readers quickly narrow down the scope of their search. Such advantages make it an ideal complementary system to keywords.</p>
 <p>This project aims to explore different machine learning approaches that can automate the task of classifying articles into different themes according to their titles. The final classification algorithm should be able to suggest possible themes based on titles. The semi-automatic algorithm should suggest the most likely categories for the publisher/creator to choose from and help promote a consistent framework that facilitates a more robust and efficient indexing and searching system.</p>
+<p>The similar principles can also be adopted for business where many different departments are involved in handling a great number of requests from client. A recommendation system can suggest to the agents possible categories a ticket should belong to. Having such a system could significantly increase the human operators' efficiency as they would have been required to memorize all available categories/departments.</p>
 
 </div>
 </div>
@@ -13410,7 +13411,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I first used the bag-of-words model to extract features from the texts. Using TF-IDF, for each title, a vector representation was created. For exploratory purposes, the vocabulary was constrained to unigrams and bigrams that appear more than twice but less than 50% of times throughout the dataset. Common English stop words – (prescribed by scikit-learn) were also ignored.</p>
+<p>The bag-of-words model was used to extract features from the texts. Using TF-IDF, for each title, a vector representation was created. For exploratory purposes, the vocabulary was constrained to unigrams and bigrams that appear more than twice but less than 50% of times throughout the dataset. Common English stop words – (prescribed by scikit-learn) were also ignored.</p>
 
 </div>
 </div>
@@ -13498,14 +13499,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Averaging the vectors within a category, I was able to generate a mean vector representation for each theme. Since each element in the vector indicates a categorical mean TF-IDF score for a word, the mean vectors can be visualized as wordcloud charts.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p>Averaging the vectors within a category, a mean vector representation could be generated for each theme. Since each element in the vector indicates a categorical mean TF-IDF score for a word, the mean vectors can be visualized as wordcloud charts.</p>
 <p>The generated wordclouds shows that the vector representations were able to capture the most prominent features shared by titles within the same category. The high-score words picked by the model all seemed reasonable given the corresponding themes (Figure 2).</p>
 
 </div>
@@ -13591,7 +13585,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Cosine similarities were computed between the mean vector representations of each theme (Figure 3). By ordering the cos-similarity matrix based on hierarchical linkage, I was able to group together categories with intuitive relations. For instance, <em>artificial-intelegence</em>, <em>data-science</em> and <em>machine-learning</em> are grouped together; <em>ux</em>, <em>design</em> and <em>visual-design</em> are grouped together. Thus, when I assigned each category an integer label according to their order lined up by the hierarchical clustering based on cosine similarity, conceptually related themes got neighboring labels.</p>
+<p>Cosine similarities were computed between the mean vector representations of each theme (Figure 3). By ordering the cos-similarity matrix based on hierarchical linkage, categories with intuitive relations were grouped together. For instance, <em>artificial-intelegence</em>, <em>data-science</em> and <em>machine-learning</em> are grouped together; <em>ux</em>, <em>design</em> and <em>visual-design</em> are grouped together. Thus, each category was assigned an integer label according to their order lined up by the hierarchical clustering based on cosine similarity, conceptually related themes got neighboring labels.</p>
 
 </div>
 </div>
@@ -13685,7 +13679,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I built a naïve Bayes classifier attempting to assign the correct themes for the titles. 20% of the data were held out as the test set while 80% of the data were used during the training of the model.</p>
+<p>Attempting to assign the correct themes for the titles, a naïve Bayes classifier was used. 20% of the data were held out as the test set while 80% of the data were used during the training of the model.</p>
 
 </div>
 </div>
@@ -13712,7 +13706,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The training set was first used to build a TF-IDF vectorization model. The complete data set were then transformed into the TF-IDF space. I used the multinomial naïve Bayes model for the classification task. The choosing of hyperparameters were completed through a 5-fold cross validation search, which determined the range of n-grams, the threshold and cut-off frequency for a word to be included in the vocabulary and the pseudo-count for additive smoothing.</p>
+<p>The training set was first used to build a TF-IDF vectorization model. The complete data set were then transformed into the TF-IDF space. The multinomial naïve Bayes model was adopted for the classification task. The choosing of hyperparameters were completed through a 5-fold cross validation search, which determined the range of n-grams, the threshold and cut-off frequency for a word to be included in the vocabulary and the pseudo-count for additive smoothing.</p>
 
 </div>
 </div>
@@ -14086,7 +14080,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Titles in many categories were misclassified into culture. Among them, <em>tv</em> and <em>film</em> caused major confusions (Figure 5). When I took a closer look at words with high TF-IDF scores in the real and predicted <em>culture</em> class (Figure 6), as well as the original <em>film</em> and <em>tv</em> (Figure 7), I saw that both words 'movie' and 'tv' are included in the wordcloud of the true <em>culture</em> class. A lot of other major features are also shared by either <em>film</em> or <em>tv</em> with <em>culture</em>, and made major contribution in the misclassified <em>culture</em> class, for instance, 'hollywood', 'game', 'black', 'netflix' and so on.</p>
+<p>Titles in many categories were misclassified into culture. Among them, <em>tv</em> and <em>film</em> caused major confusions (Figure 5). A closer look at words with high TF-IDF scores in the real and predicted <em>culture</em> class (Figure 6), as well as the original <em>film</em> and <em>tv</em> (Figure 7), revealed that both the words 'movie' and 'tv' are included in the wordcloud of the true <em>culture</em> class. A lot of other major features are also shared by either <em>film</em> or <em>tv</em> with <em>culture</em>, and made major contribution in the misclassified <em>culture</em> class, for instance, 'hollywood', 'game', 'black', 'netflix' and so on.</p>
 
 </div>
 </div>
@@ -14260,7 +14254,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I built multilayer perceptron networks for the classification task with various architectures. The networks took input of TF-IDF vector representations as well. However, due to limited computing resources, only unigrams were used because n-grams of higher orders would significantly increase the size of vocabulary, i.e. the dimension of the vectors. Words that appeared less than twice or occurred in more than 10% of the documents in the training set were rejected; this is consistent with the best parameters for the naïve Bayes classifier.</p>
+<p>Multilayer perceptron networks with various architectures were tested for the classification task. The networks took input of TF-IDF vector representations as well. However, due to limited computing resources, only unigrams were used because n-grams of higher orders would significantly increase the size of vocabulary, i.e. the dimension of the vectors. Words that appeared less than twice or occurred in more than 10% of the documents in the training set were rejected; this is consistent with the best parameters for the naïve Bayes classifier.</p>
 
 </div>
 </div>
@@ -14683,8 +14677,8 @@ Accuracy on held-out test set: 0.40780730897009965
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I experimented on recurrent neural networks of different configurations. Vector representations generated by bag-of-words models are not suitable as input to a recurrent network as bag-of-words representations are not sequentially dynamic. I used the continuous bag-of-words model to generate word2vec embeddings. The continuous bag-of-words method trains a network that can predict the target word given the surrounding contextual words. Word2vec projects each word into a high-dimension vector space where contextually close words correspond to vectors located spatially close.</p>
-<p>Individual words, which occur more than (including) twice in the training set, were mapped to 128-dimension vectors as the algorithm utilized the 6 words around it in the text as the context. 128 dimensions and 6-word-wide context were chosen after experimenting with various configurations. Higher dimensions and lengthier context did not improve the performance of the classifiers. The word2vec model was trained on the training set solely. I then converted the titles in both the training and test sets to sequences of vectors using the word2vec model. Novel words that were not included in the vocabulary formed during training were mapped to a vector with all elements equal to 0. As optimization algorithms for the neural network require input sequences to be of uniform length, all sequences were pre-padded with 0-vectores.</p>
+<p>To experiment on recurrent neural networks of different configurations, vector representations generated by bag-of-words models are not suitable as input to a recurrent network because bag-of-words representations are not sequentially dynamic. The continuous bag-of-words model were therefore used to generate word2vec embeddings. The continuous bag-of-words method trains a network that can predict the target word given the surrounding contextual words. Word2vec projects each word into a high-dimension vector space where contextually close words correspond to vectors located spatially close.</p>
+<p>Individual words, which occur more than (including) twice in the training set, were mapped to 128-dimension vectors as the algorithm utilized the 6 words around it in the text as the context. 128 dimensions and 6-word-wide context were chosen after experimenting with various configurations. Higher dimensions and lengthier context did not improve the performance of the classifiers. The word2vec model was trained on the training set solely. The titles in both the training and test sets were then converted to sequences of vectors using the word2vec model. Novel words that were not included in the vocabulary formed during training were mapped to a vector with all elements equal to 0. As optimization algorithms for the neural network require input sequences to be of uniform length, all sequences were pre-padded with 0-vectores.</p>
 
 </div>
 </div>
@@ -16002,7 +15996,7 @@ Accuracy on held-out test set: 0.2925961082107261
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After varying the configuration of the LSTM network, it was observed that with the limited computational resources I have access to, a network with a layer of 512 LSTM units followed by a 512-perceptron layer gave the most cost-effective results. It achieved about 29% accuracy on the test set, and 26% average multiclass precision.</p>
+<p>After varying the configuration of the LSTM network, it was observed that with the limited accessible computational resources, a network with a layer of 512 LSTM units followed by a 512-perceptron layer gave the most cost-effective results. It achieved about 29% accuracy on the test set, and 26% average multiclass precision.</p>
 
 </div>
 </div>
@@ -16156,7 +16150,7 @@ Accuracy on held-out test set: 0.2925961082107261
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Regarding the accuracy, the naïve Bayes and multilayer perceptron network models perform significantly better than the recurrent network and the LSTM network. Similarly, at the same probability threshold, the naïve Bayes and multilayer perceptron network classifiers show significantly better precision which ranges between 70-80% if the classifier’s probability threshold is held at 80%, while the corresponding precision for recurrent and LSTM networks falls between 50 and 60% (Figure 14).</p>
+<p>Regarding the accuracy, the naïve Bayes and multilayer perceptron network models perform significantly better than the recurrent network and the LSTM network. Similarly, at the same probability threshold, the naïve Bayes and multilayer perceptron network classifiers show significantly better precision which ranges between 70-80% if the classifier’s probability threshold is held at 0.8, while the corresponding precision for recurrent and LSTM networks falls between 50 and 60% (Figure 14).</p>
 
 </div>
 </div>
@@ -16250,7 +16244,7 @@ Accuracy on held-out test set: 0.2925961082107261
 <p>The reason behind the inferior performance of the recurrent network and the LSTM network might be two folds – the type of vectorization method they require and the mismatch between the characteristics of the data and the specialty of the networks. Both the naïve Bayes classifier and the multilayer perceptron network take input of bag-of-words vector representations. These vectors are very sparse and static, and the models are ignorant of the words’ meaning, which can be ideal for short texts. On the other hand, the recurrent network and the LSTM network accept input from continuous bag-of-words embeddings. The model was trained to be aware of the words’ meaning based on context, and the vector representations are dynamic and sequential. On the surface, the recurrent network and the LSTM network may be expected to take advantage of the more sophisticated input as it is more meaningful and dynamic. However, in this case, the classification is based on only titles, which tend to be not lengthy, thus maybe providing insufficient context to build a strong word2vec model.</p>
 <p>The recurrent network and the LSTM network process sequential data, and the input sequence should be long enough, especially for the LSTM network, for the network to learn any meaningful dynamic patterns from the data. However, as titles are usually very concise, a lot of them may not be suitable for recurrent and LSTM networks.</p>
 <p>Between the naïve Bayes model and the multilayer perceptron network, the naïve Bayes model demonstrates better precision, but the multilayer perceptron network excels in terms of recall and the number of titles that got classified (Figure 14).</p>
-<p>If a recommendation system is to be built, where given a probability threshold for the chosen classifier, all themes with predicted probability higher than the threshold should be suggested as possible choice for the user to choose from, a correct suggestion rate can be calculated for the proportion of documents whose suggested themes include the real theme. In this sense, for a very low threshold, the correct suggestion rate would only be slightly higher for the naïve Bayes classifier (although the recommendations would also include a lot of inaccurate and redundant themes). On the other hand, and more importantly, for higher and more reasonable working thresholds, the correct suggestion rate is significantly higher for the multilayer perceptron network (Figure 15). If the probability threshold of the classifiers is held at 25%, the naïve Bayes model should be able to make a decision 48% of the time, and the correct suggestion rate is 26%. For the multilayer perceptron network, at decision threshold of 25%, a decision can be reached at a frequency of 92%, and the correct suggestion rate is 38%. This suggests the multilayer perceptron network may be a better model to use when building such recommendation systems. It is more frequent for the multilayer perceptron network to make a recommendation, and there is a higher chance that the suggestion will include the correct category.</p>
+<p>If a recommendation system is to be built, where given a probability threshold for the chosen classifier, all themes with predicted probability higher than the threshold should be suggested as possible choice for the user to choose from, a correct suggestion rate can be calculated for the proportion of documents whose suggested themes include the real theme. In this sense, for a very low threshold, the correct suggestion rate would only be slightly higher for the naïve Bayes classifier (although the recommendations would also include a lot of inaccurate and redundant themes). On the other hand, and more importantly, for higher and more reasonable working thresholds, the correct suggestion rate is significantly higher for the multilayer perceptron network (Figure 15). If the probability threshold of the classifiers is held at 0.25, the naïve Bayes model should be able to make a decision 48% of the time, and the correct suggestion rate is 26%. For the multilayer perceptron network, at decision threshold of 0.25, a decision can be reached at a frequency of 92%, and the correct suggestion rate is 38%. This suggests the multilayer perceptron network may be a better model to use when building such recommendation systems. It is more frequent for the multilayer perceptron network to make a recommendation, and there is a higher chance that the suggestion will include the correct category.</p>
 
 </div>
 </div>
@@ -16403,8 +16397,8 @@ Thresholding at a probability of 0.1, the Multilayer Perceptron Network recommen
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>One of the major reasons why the classifiers struggled to improve performance is that the original data contain too many categories, which makes the problem extremely challenging because some of the categories share similar connotation. In order to test the full potential of the machine learning algorithms, I reduced the number of categories by aggregating similar themes. After grouping categories, there are 52 themes remaining. The naïve Bayess classifier’s accuracy increases from 35% to 44%; the multilayer perceptron network’s accuracy increases from 40% to 49%. Both classifiers show better performance in making better recommendations, allowing higher thresholds to be used for acceptable correct suggestion rates. This suggests if the same principles are adopted, a more powerful recommendation system could have been built in a scenario where a significantly more limited number of categories are involved.</p>
-<p>None of the above analyses involved pre-trained models. However, it is possible that models trained on a large variety of corpus could boost the performance of the classifiers. Thus, instead of directly applying TF-IDF method on the original texts, I used WorfNet lemmatization model to tokenize the titles before TF-IDF. This process reduces words to their base forms regardless of the time, case, number and sex in the original text. This step does not further increase the performance of the multilayer perceptron network.</p>
+<p>One of the major reasons why the classifiers struggled to improve performance is that the original data contain too many categories, which makes the problem extremely challenging because some of the categories share similar connotation. In order to test the full potential of the machine learning algorithms, the number of categories was reduced by aggregating similar themes. After grouping categories, there are 52 themes remaining. The naïve Bayess classifier’s accuracy increases from 35% to 44%; the multilayer perceptron network’s accuracy increases from 40% to 49%. Both classifiers show better performance in making better recommendations, allowing higher thresholds to be used for acceptable correct suggestion rates. This suggests if the same principles are adopted, a more powerful recommendation system could have been built in a scenario where a significantly more limited number of categories are involved.</p>
+<p>None of the above analyses involved pre-trained models. However, it is possible that models trained on a large variety of corpus could boost the performance of the classifiers. Thus, instead of directly applying TF-IDF method to the original texts, WorfNet lemmatization was adopted to tokenize the titles before TF-IDF. This process reduces words to their base forms regardless of the time, case, number and sex in the original text. This step does not further increase the performance of the multilayer perceptron network.</p>
 
 </div>
 </div>
@@ -16420,7 +16414,8 @@ Thresholding at a probability of 0.1, the Multilayer Perceptron Network recommen
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This project demonstrates multilayer perceptron network is a feasible model to build a recommendation system that suggest themes for articles on an online publishing platform. Given a finite number of all possible themes, the multilayer perceptron network can recommend the most likely themes for the author to choose from. As this approach classifies content based only on the titles, it can also generalize to other content-sharing platforms, such as videos and images.</p>
-<p>This report delivers a preliminary recommendaton system, however suppoted by comprehensive analysis. Provided sufficient resources, the model framework outlined here should generate a mature and successul product.</p>
+<p>A recommendation system utilizing similar principles adopted in building the models for this project can also benefit business who needs the involvement of many different departments to deal with requests in high volumes from clients. The semi-automatic system can suggest to the human agents the possible channels a ticket should be sent to. Such a system can significantly boost the performance of the human agents while maining a balance between efficiency and accuracy. A completely automatic system may be more efficient, however at the expense of losing a manual solution's accuracy.</p>
+<p>This report delivers a preliminary recommendaton system, supported by comprehensive analysis. Provided sufficient resources, the model framework outlined here should generate a mature and successul product.</p>
 
 </div>
 </div>

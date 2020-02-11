@@ -9,3 +9,5 @@ __To view the HTML documents properly, please click the links below:__
 [Milestone Report 2](https://github.com/carmagnole/Springboard/blob/master/project2/Milestone%20Report%202.pdf)
 
 [Final Report](http://htmlpreview.github.com/?https://github.com/carmagnole/Springboard/blob/master/project2/Report.html)
+
+[Slides](https://github.com/carmagnole/Springboard/blob/master/project2/Slides.pdf)
