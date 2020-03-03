@@ -11,14 +11,14 @@ __To view the HTML documents properly, please click the links below:__
 
 [Data Wrangling](https://github.com/carmagnole/Springboard/blob/master/project1/Data%20Wrangling.pdf)
 
-[Exploratory Data Analysis](http://htmlpreview.github.com/?https://github.com/carmagnole/Springboard/blob/master/project1/Exploratory%20Data%20Analysis.html)
+[Exploratory Data Analysis](http://htmlpreview.github.com/?https://github.com/carmagnole/Springboard/blob/master/project1/Exploratory%20Data%20Analysis.html) ([download](https://raw.githubusercontent.com/carmagnole/Springboard/master/project1/Exploratory%20Data%20Analysis.html) and open in a browser if equations do not render correctly)
 
-[Data Story](http://htmlpreview.github.com/?https://github.com/carmagnole/Springboard/blob/master/project1/Data%20Story.html)
+[Data Story](http://htmlpreview.github.com/?https://github.com/carmagnole/Springboard/blob/master/project1/Data%20Story.html) ([download](https://raw.githubusercontent.com/carmagnole/Springboard/master/project1/Data%20Story.html) and open in a browser if equations do not render correctly)
 
 [Milestone Report](https://github.com/carmagnole/Springboard/blob/master/project1/Milestone%20Report.pdf)
 
-[In-depth Analysis](http://htmlpreview.github.com/?https://github.com/carmagnole/Springboard/blob/master/project1/In-depth%20Analysis.html)
+[In-depth Analysis](http://htmlpreview.github.com/?https://github.com/carmagnole/Springboard/blob/master/project1/In-depth%20Analysis.html) ([download](https://raw.githubusercontent.com/carmagnole/Springboard/master/project1/In-depth%20Analysis.html) and open in a browser if equations do not render correctly)
 
-[Final Report](http://htmlpreview.github.com/?https://github.com/carmagnole/Springboard/blob/master/project1/Report.html)
+[Final Report](http://htmlpreview.github.com/?https://github.com/carmagnole/Springboard/blob/master/project1/Report.html) ([download](https://raw.githubusercontent.com/carmagnole/Springboard/master/project1/Report.html) and open in a browser if equations do not render correctly)
 
 [Slides](https://github.com/carmagnole/Springboard/blob/master/project1/Slides.pdf)
